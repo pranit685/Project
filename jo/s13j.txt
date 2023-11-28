@@ -1,0 +1,54 @@
+import java.util.*;
+public class Trywe {
+int sum =0;
+public static void main(String args[]) throws Exception{
+int n;
+Scanner s = new Scanner(System.in);
+System.out.print("Enter the Number : ");
+n =s.nextInt();
+Trywe obj = new Trywe();
+int a = obj.sum_digit(n);
+System.out.println("Sum of Digit is : "+a);
+}
+int sum_digit(int n){
+sum = n%10; if(n==0){
+return 0;
+}else{
+return sum +sum_digit(n/10);
+}
+}
+}
+
+
+import java.util.*;
+class Employee {
+ private String name;
+ public Employee(String name) {
+ this.name = name;
+ }
+ public String getName() {
+ return name;
+ }
+}
+
+
+
+public class Trywe{
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in); 
+ System.out.print("Enter the number of employees: ");
+ int n = sc.nextInt();
+ sc.nextLine(); // Consume the newline character
+ Employee[] employees = new Employee[n]; 
+ for (int i = 0; i < n; i++) {
+ System.out.print("Enter the name of employee " + (i + 1) + ": ");
+ String name = sc.nextLine();
+ employees[i] = new Employee(name);
+ }
+ Arrays.sort(employees, (e1, e2) -> e1.getName().compareTo(e2.getName()));
+ System.out.println("\nSorted Employee Names (in ascending order):");
+ for (Employee employee : employees) {
+ System.out.println(employee.getName());
+ } 
+ }
+}

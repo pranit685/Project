@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.Scanner;
+class Trywe{
+ public static void main(String args[]) throws IOException{
+ FileReader fr = new FileReader("a.txt");
+ FileWriter fw = new FileWriter("b.txt");
+ try (Scanner dr = new Scanner(fr)) {
+ while(dr.hasNextLine()){
+ String s=dr.nextLine();
+ StringBuffer buffer = new StringBuffer(s);
+ buffer=buffer.reverse();
+ String ans = buffer.toString();
+ fw.write(ans);
+ }
+ }catch(Exception e){
+ System.out.print("Error...!");
+ }
+ fr.close();
+ fw.close();
+ }
+}
+
+
+import java.util.*;
+public class Trywe{
+ public static void main(String args[]){
+ Hashtable h1=new Hashtable<>();
+ Enumeration en;
+ int i,n,std,val,max;
+ String nm, cname, str, s;
+ Scanner sc = new Scanner(System.in);
+ try {
+ System.out.print("Enter the Now Many Record You Want : ");
+ n = sc.nextInt(); 
+ for(i=0; i<n; i++){
+ System.out.print("Enter the City Name : ");
+ cname = sc.next();
+ System.out.println("Enter The STD Code : ");
+ std = sc.nextInt();
+ h1.put(cname,std);
+ }
+ System.out.print("Enter city name to search : ");
+ nm = sc.next();
+ en=h1.keys();
+ while(en.hasMoreElements()){
+ str=(String)en.nextElement();
+ val=(Integer)h1.get(str);
+ if(str.equals(nm)){
+ System.out.print("STD Code : " + val);
+ }
+ }
+ } catch (Exception e) {
+ System.out.println("Error : "+e);
+ }
+ } 
+}
